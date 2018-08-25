@@ -1,0 +1,52 @@
+{% extends 'main/wrapper.html' %}
+{% load staticfiles %}
+
+{% block main %}
+	<h1>Особістий кабінет</h1>
+	<main role="main" class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h3 class="pb-3 mb-4 font-italic border-bottom">Користувач: {{ user.first_name }} {{ user.last_name }}</h3>
+				<div class="container">
+					<p>Login: {{ user }}</p>
+					<p>Ім'я: {{ user.first_name }}</p>
+					<p>Прізвище: {{ user.last_name }}</p>
+					<p>Email: {{ user.email }}</p>
+					{% if user.userprofile.image %}
+						<img src="{{ user.userprofile.image.url }}" width="248">
+					{% endif %}
+				</div>
+			</div>
+			<div class="col-md-4 prof-main">
+                <h3 class="pb-3 mb-4 font-italic border-bottom">
+                    Управління профилем
+                </h3>
+                <div class="container-fluid">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/account/profile/edit/">
+                                    <span data-feather="home"></span>
+                                    <i class="fas fa-user-edit"></i> Редагувати профіль <span class="sr-only">(current)</span>
+                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/account/change-password/">
+                                    <span data-feather="file"></span>
+                                    <i class="fas fa-unlock-alt"></i> Змінити пароль
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account:logout' %}">
+                                 <span data-feather="file"></span>
+                                    <i class="fas fa-sign-out-alt"></i> Вийти
+                                </a> 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</main>
+	
+{% endblock %}

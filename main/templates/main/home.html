@@ -1,0 +1,145 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+{% block head %}
+	<div id="headwrapper">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Лікар алерголог</h1>
+					<h2>Вікторія Анатоліївна Яцишена</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block content %}
+	<div class="container">
+		<h2>Головна інформація:</h2>
+		<hr>
+		<div class="row centered">
+			<div class="col-md-3">
+				<div class="card border-success">
+					<div class="card-header border-success">
+						<i class="fas fa-tty"> Розклад:</i>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title" style="text-align: center;">Час прийому:</h5>
+						<p>ПН: 9:00 - 18:00</p>
+						<p>ВТ: 9:00 - 18:00</p>
+						<p>СР: 9:00 - 18:00</p>
+						<p>ЧТ: 9:00 - 18:00</p>
+						<p>ПТ: 9:00 - 18:00</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card border-success">
+					<div class="card-header border-success">
+						<i class="fas fa-location-arrow">Ми знаходимося:</i>
+					</div>
+					<div class="card-body">
+						<div id="map">
+							<script type="text/javascript">
+								var map;
+								function initMap() {
+									map = new google.maps.Map(document.getElementById('map'), {
+										center: {lat: -34.397, lng: 150.644},
+										zoom: 8
+									});
+								}
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="col-md-6">
+				<div class="card border-success">
+					<div class="card-header border-success">
+						<i class="fas fa-ambulance">Сезонна інформація:</i>
+					</div>
+					<div class="card-body">
+						{% for note in note %}
+							<h4 class="font-italic">{{note.title}}</h4>
+							<p class="mb-0">{% autoescape off %}{{ note.descriptions }}{% endautoescape %}</p>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block category %}
+	<h2>Категорії:</h2>
+	<hr>
+	<div class="row centered">
+		<br><br>
+		<div class="col-md-2">
+			<a class="button" href="{% url 'category:domestic' %}"><i class="fas fa-archive" style="font-size: 5em;"></i><br>Побутові алергени</a>
+		</div>
+		<div class="col-md-2">
+			<a class="button" href="{% url 'category:plants' %}"><i class="fas fa-vials" style="font-size: 5em;"></i><br>Пилкові алергени</a>
+		</div>
+		<div class="col-md-2">
+			<a class="button" href="{% url 'category:pills' %}"><i class="fas fa-pills" style="font-size: 5em;"></i><br>Алергія на ліки</a>
+		</div>
+		<div class="col-md-2">
+			<a class="button" href="{% url 'category:asthma' %}"><i class="fas fa-braille" style="font-size: 5em;"></i><br>Астма</a>
+		</div>
+		<div class="col-md-2">
+			<a class="button" href="{% url 'category:bacteria' %}"><i class="fas fa-dna" style="font-size: 5em"></i><br>Бактеріальні алергени</a>
+		</div>
+		<div class="col-md-2">
+			<a class="button" href="{% url 'category:food' %}"><i class="fas fa-utensils" style="font-size: 5em"></i><br>Харчова алергія</a>
+		</div>
+		<br><br>
+	</div>
+	<div class="row centered">
+		<br><br>
+		<div class="col-md-2">
+			<a class="button" href="{% url 'category:t_al' %}"><i class="fas fa-allergies" style="font-size: 5em;"></i><br>Конктактна алергія</a>
+		</div>
+		<div class="col-md-2">
+			<a class="button" href="{% url 'category:asit' %}"><i class="fas fa-child" style="font-size: 5em;"></i><br>АСІТ</a>
+		</div>
+		<div class="col-md-2">
+			<a class="button" href="{% url 'category:child' %}"><i class="fas fa-diagnoses" style="font-size: 5em;"></i><br>Алергія у дітей</a>
+		</div>
+		<br><br>
+	</div>
+
+		<br><br>
+		<h2>Новини:</h2>
+		<hr>
+
+		{% if user.is_authenticated %}
+			<div class="row centered">
+				<div class="col-md-2">
+					<a class="button" href="{% url 'news:news_page' %}"><i class="fas fa-newspaper" style="font-size: 5em;"></i><br>Архів новин</a>
+				</div>
+				<div class="col-md-2">
+					<a class="button" href="{% url 'main:media' %}"><i class="fas fa-bullhorn" style="font-size: 5em;"></i><br>Медіатека</a>
+				</div>
+				<div class="col-md-2">
+					<a class="button" href="{% url 'articles:article_cat' %}"><i class="fas fa-book" style="font-size: 5em;"></i><br>Цікава інформація</a>
+				</div>
+			</div>
+		{% else %}
+			<div class="row centered">
+				<div class="col-md-2">
+					<a class="button" href="{% url 'account:login' %}"><i class="fas fa-newspaper" style="font-size: 5em;"></i><br>Архів новин</a>
+				</div>
+				<div class="col-md-2">
+					<a class="button" href="{% url 'account:login' %}"><i class="fas fa-bullhorn" style="font-size: 5em;"></i><br>Медіатека</a>
+				</div>
+				<div class="col-md-2">
+					<a class="button" href="{% url 'account:login' %}"><i class="fas fa-book" style="font-size: 5em;"></i><br>Цікава інформація</a>
+				</div>
+			</div>
+		{% endif %}
+	
+{% endblock %}

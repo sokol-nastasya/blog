@@ -1,0 +1,46 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+{% block head %}
+	<div id="headerw" style="
+	background: url(../../static/img/header12.jpg) no-repeat;
+	margin-top: -10px;
+	padding-top: 20px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 300px;
+	width: 100%;
+	background-size: 100%;
+	color: white;
+
+	-webkit-background-size: cover; ">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Лікар алерголог</h1>
+					<h2>Вікторія Анатоліївна Яцишена</h2>
+					<h3>Астма</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block main %}
+	<div class="container">
+		<style>
+			.leftimg {
+				float:left; /* Выравнивание по левому краю */
+				margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+			}
+			.rightimg  {
+				float: right; /* Выравнивание по правому краю  */ 
+				margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+			}
+		</style>
+		<br><br>
+		<p>
+			<img src="/static/img/cat_2.jpg" width="200" class="rightimg"><h1 style="color: green;"> Астма</h1> - це гетерогенне захворювання, зазвичай характеризуєтьсяхронічним запаленням дихальних шляхів. Визначається наявністю таких симптомів як: задишка, утруднене дихання, відчуття стиснення в грудях, кашель. Які змінюються за часом і по своїй інтенсивності та пов’язані з варіабельним обмеженням повітряного потоку. Розвивається в будь-якому віці у людей з обтяженим сімейним анамнезом( в сім’ї є хворі на бронхіальну астму) або у алергіків. Має рецидивуючий перебіг з періодами покращення. Потребує постійного нагляду так як може призвести до інвалідизації або смерті у важких випадках.
+		</p>
+	</div>
+{% endblock %}

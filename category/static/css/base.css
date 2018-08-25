@@ -1,0 +1,16 @@
+#headwrapper_cat{
+	background: url(../img/header3.jpg) no-repeat;
+	margin-top: -10px;
+	padding-top: 20px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 500px;
+	width: 100%;
+	background-size: 100%;
+
+	-webkit-background-size: cover; 
+}
+
+#solution {
+	
+}

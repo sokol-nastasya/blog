@@ -1,0 +1,47 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+{% block main %}
+	<div class="card text-center">
+		<div class="card-header">
+			<ul class="nav nav-tabs card-header-tabs">
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'main:about' %}"><i class="fas fa-plus-circle">Лікар</i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'main:certificates' %}"><i class="fas fa-user-graduate"> Сертифікати та дипломи</i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="{% url 'main:photo_doctor' %}"><i class="fas fa-camera-retro"> Фото</i></a>
+				</li>
+			</ul>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-6">
+					<img class="w3-border w3-padding" src="{% static 'img/doc_img/1_05.jpg' %}" width="300" align="center">
+				</div>
+				<div class="col-md-6">
+					<img class="w3-border w3-padding" src="{% static 'img/doc_img/1_02.jpg' %}" width="300" align="center">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<img class="w3-border w3-padding" src="{% static 'img/doc_img/1_03.jpg' %}" width="300" align="center">
+				</div>
+				<div class="col-md-6">
+					<img class="w3-border w3-padding" src="{% static 'img/doc_img/1_04.jpg' %}" width="300" align="center">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<img class="w3-border w3-padding" src="{% static 'img/doc_img/1_06.jpg' %}" width="300" align="center">
+				</div>
+				<div class="col-md-6">
+					<img class="w3-border w3-padding" src="{% static 'img/doc_img/1_07.jpg' %}" width="300" align="center">
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

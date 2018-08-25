@@ -1,0 +1,38 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+{% block head %}
+	<div id="headerw" style="
+	background: url(../../static/img/header16.jpg) no-repeat;
+	margin-top: -10px;
+	padding-top: 20px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 300px;
+	width: 100%;
+	background-size: 100%;
+	color: white;
+
+	-webkit-background-size: cover; ">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Лікар алерголог</h1>
+					<h2>Вікторія Анатоліївна Яцишена</h2>
+					<h3>Медіатека</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block category %}
+	<div class="row centered">
+		<div class="col-lg-6">
+			<a href="{% url 'gallery:gallery' %}"><i class="fas fa-file" style="font-size: 5em;"></i><br>Фото галерея</a>
+		</div>
+		<div class="col-lg-6">
+			<a href="{% url 'video:video' %}"><i class="fab fa-youtube" style="font-size: 5em;"></i><br>Видео галерея </a>
+		</div>
+	</div>
+{% endblock %}

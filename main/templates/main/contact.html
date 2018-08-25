@@ -1,0 +1,83 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+{% block head %}
+	<div id="headerw" style="
+	background: url(../../static/img/header6.jpg) no-repeat;
+	margin-top: -10px;
+	padding-top: 20px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 300px;
+	width: 100%;
+	background-size: 100%;
+	color: white;
+
+	-webkit-background-size: cover; ">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Лікар алерголог</h1>
+					<h2>Вікторія Анатоліївна Яцишена</h2>
+					<h3>Контакти</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+	<br>
+	<iframe src="https://calendar.google.com/calendar/b/1/embed?height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=medallergy.512%40gmail.com&amp;color=%232F6309&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%23B1365F&amp;src=ru.ukrainian%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=Europe%2FKiev" style="border-width:0" width="1000" height="700" frameborder="0" scrolling="no"></iframe>
+	
+</div>
+{% endblock %}
+
+	
+{% block content %}
+	<div class="container">
+		<h2>Контакти:</h2>
+		<hr>
+		<div class="row centered">
+			<div class="col-md-6">
+				<div class="card text-center border-success">
+					<div class="card-header border-success">
+						<i class="fas fa-clock" style="text-align: center;">Час прийому:</i>
+					</div>
+					<div class="card-body">
+						<p>ПН: 9:00 - 18:00</p>
+						<p>ВТ: 9:00 - 18:00</p>
+						<p>СР: 9:00 - 18:00</p>
+						<p>ЧТ: 9:00 - 18:00</p>
+						<p>ПТ: 9:00 - 18:00</p>
+					</div>
+					<div class="card-footer text-muted border-success">
+						<i class="fas fa-phone-volume" style="text-align: center">Дзвони:</i><p>(0512) 78-32-89</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="card border-success">
+					<div class="card-header border-success">
+						<i class="fas fa-location-arrow">Ми знаходимося:</i>
+					</div>
+					<div class="card-body">
+						<div id="map">
+							<script type="text/javascript">
+								var map;
+								function initMap() {
+									map = new google.maps.Map(document.getElementById('map'), {
+										center: {lat: -34.397, lng: 150.644},
+										zoom: 8
+									});
+								}
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+{% endblock %}

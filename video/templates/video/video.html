@@ -1,0 +1,59 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+{% load embed_video_tags %}
+
+{% block head %}
+	<div id="headerw" style="
+	background: url(../../static/img/header4.jpg) no-repeat;
+	margin-top: -10px;
+	padding-top: 20px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 300px;
+	width: 100%;
+	background-size: 100%;
+	color: white;
+
+	-webkit-background-size: cover; ">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Лікар алерголог</h1>
+					<h2>Вікторія Анатоліївна Яцишена</h2>
+					<h3>Відео</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block main %}
+	
+	<div class="container">
+		<div class="table">
+			<table class="table">
+				<tbody>
+					{% for video in video %}
+						<tr>
+								<!-- <td><a href="/video/video/get/{{video.id}}">{% autoescape off %}{{video.title}}{% endautoescape %}</a></td> -->
+
+								<td><a href="/video/video/get/{{ video.id }}">{{ video.title }}</a></td>
+								<td>{% autoescape off %}{{video.get_short_descr}}{% endautoescape %}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+
+		<div class="youtube">
+			{% if video.video %}
+				<iframe width="560" height="315" src="{{MEDIA_URL}}{{ video.video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			{% endif %}
+
+			<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/oIeLzyK1Yh0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+
+		</div>
+	</div>
+
+{% endblock %}

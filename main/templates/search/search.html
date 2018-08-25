@@ -1,0 +1,32 @@
+{% extends 'main/wrapper.html' %}
+{% load staticfiles %}
+<meta charset="utf-8">
+
+{% block head %}
+   <form method="get">
+
+        {% if query %}
+            <h3>Результат:</h3>
+
+            {% for result in page.object_list %}
+                <h2><a href="{{ result.title.id }}">{{ result.object.title }}</a></p>
+                <p>{{ result.object.descriptions }} ...</p>
+            {% empty %}
+                <p>Поиск результата не дал.</p>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% else %}
+            {# Show some example queries to run, maybe query syntax, something else? #}
+        {% endif %}
+
+    </form>
+
+{% endblock %}
+

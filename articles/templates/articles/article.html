@@ -1,0 +1,38 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+{% load mptt_tags %}
+
+{% block head %}
+	<div id="headerw" style="
+	background: url(/../../static/img/header19.jpg) no-repeat;
+	margin-top: -10px;
+	padding-top: 20px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 300px;
+	width: 100%;
+	background-size: 100%;
+	color: white;
+
+	-webkit-background-size: cover; ">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Лікар алерголог</h1>
+					<h2>Вікторія Анатоліївна Яцишена</h2>
+					<h3>Статті та публікації</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block main %}
+<br><br>
+<div class="container">
+	<h1>{{ article_list.title }}</h1>
+	<h3>{% autoescape off %}{{ article_list.descriptions }}{% endautoescape %}</h3>
+	<span><i class="far fa-user">{{ article_list.date }}</i></span>
+</div>
+
+{% endblock %}

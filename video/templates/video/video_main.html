@@ -1,0 +1,26 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+{% load embed_video_tags %}
+
+
+{% block head %}
+	<h1>Вiдео</h1>
+	<div class="container">
+		<div class="youtube">
+
+			<h2>{{ videos.title }}</h2>
+
+			{% if videos.video %}
+				<iframe width="560" height="315" src="{{ videos.video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			{% endif %}
+
+			<h4>{% autoescape off %}{{ videos.descriptions }}{% endautoescape %}</h4>
+
+
+			<!-- <a href='https://www.youtube.com/watch?v=m0Kq0zcy0yg&index=7&list=RDMMTJ3Ci4yeQpA' target="_blank" class="various fancybox.iframe" rel="group">
+			<img src="{% static 'img/Video.png' %}">
+			</a> -->
+		</div>
+	</div>
+
+{% endblock %}

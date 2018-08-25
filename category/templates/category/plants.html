@@ -1,0 +1,48 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+{% block head %}
+	<div id="headerw" style="
+	background: url(../../static/img/header12.jpg) no-repeat;
+	margin-top: -10px;
+	padding-top: 20px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 300px;
+	width: 100%;
+	background-size: 100%;
+	color: white;
+
+	-webkit-background-size: cover; ">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Лікар алерголог</h1>
+					<h2>Вікторія Анатоліївна Яцишена</h2>
+					<h3>Пиилкові алергени</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block main %}
+	<div class="container">
+		<style>
+			.leftimg {
+				float:left; /* Выравнивание по левому краю */
+				margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+			}
+			.rightimg  {
+				float: right; /* Выравнивание по правому краю  */ 
+				margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+			}
+		</style>
+		<br><br>
+		<p>
+
+			<img src="/static/img/cat_1.jpg" width="200" class="leftimg">
+			В світі налічується 250 000 рослин, що продукують полок , і лише 100 з них достовірно визивають алергічну реакцію. В основному це вітрозапилювані рослини. До пилкових алергенів відносяться алергени берези, вільхи, платану, оливи, тимофіївки, злакових трав, газонних трав, амброзії, полину, соняшника, лобода, амаранту. Періоди цвітіння діляться на весняний-дерева, літній- лугові та злакові трави, літньо-осінній- бур’яни.
+		</p>
+	</div>
+{% endblock %}

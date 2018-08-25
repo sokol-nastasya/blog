@@ -1,0 +1,12 @@
+{% extends 'main/wrapper.html' %}
+{% load staticfiles %}
+
+{% block main %}
+	<main role="main" class="container" >
+		<h2>{{ news_list.title }}</h2>
+		<p align="justify">{% autoescape off %}{{ news_list.descriptions }}{% endautoescape %}</p>
+		<p><a href="/news/addlikes/{{ news_list.id}}"><img src="{% static 'img/like.png' %}" width="25px"></a>{{ news_list.likes }}</p>
+		<small>{{ news_list.date }}</small>
+		</div>
+{% endblock %}
+

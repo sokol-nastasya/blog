@@ -1,0 +1,54 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+{% block main %}
+	<div class="card text-center">
+		<div class="card-header">
+			<ul class="nav nav-tabs card-header-tabs">
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'main:about' %}"><i class="fas fa-plus-circle">Лікар</i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="{% url 'main:certificates' %}"><i class="fas fa-user-graduate"> Сертифікати та дипломи</i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'main:photo_doctor' %}"><i class="fas fa-camera-retro"> Фото</i></a>
+				</li>
+			</ul>
+		</div>
+		<div class="card-body">
+
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Сертифікати та дипломи</h1>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-6">
+					<img src="/static/img/cert_1.jpg " width="400">
+				</div>
+				<br><br>
+				<div class="col-md-6">
+					<img src="/static/img/cert_2.jpg" width="400">
+				</div>
+				<br>
+				<div class="col-md-6">
+					<img src="/static/img/cert_3.jpg" width="400">
+				</div>
+				<br>
+				<div class="col-md-6">
+					<img src="/static/img/cert_5.jpg" width="400">
+				</div>
+				<br>
+				<div class="col-md-6">
+					<img src="/static/img/cert_6.jpg" width="400">
+				</div>
+				<br>
+				<div class="col-md-6">
+					<img src="/static/img/cert_4.jpg" width="400">
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

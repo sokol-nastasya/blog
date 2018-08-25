@@ -1,0 +1,25 @@
+{% extends "mainApp/wrapper.html" %}
+{% load staticfiles %}
+
+{% block head %}
+	<div class="p-3">
+		<h4 class="font-italic">Облако тегов:</h4>
+		<ol class="list-unstyled mb-0">
+			<div class="container" style="margin:0px; padding: 0px;">
+				{% for keyword in keywords %}
+					<a type="button" style="margin: 2px;" class="btn btn-light btn-sm" href="/keywords/{{ keyword.id }}">{{ keyword.name }}({{ keyword.keywords.count }})</a>
+				{% endfor %}
+			</div>
+		</ol>
+	</div>
+{% endblock %}
+
+
+{% block main %}
+	{{ keys.name }}
+	{% for news in news %}
+	<h4><a href="/news/{{ news.id }}">{{ news.title }}</a></h4>
+	<p>{% autoescape off %}{{ news.get_short_text }}{% endautoescape %}</p>
+	<small>{{ news.date }}</small>
+	{% endfor %}
+{% endblock %}

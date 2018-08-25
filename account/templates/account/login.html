@@ -1,0 +1,26 @@
+{% extends 'main/wrapper.html' %}
+{% load staticfiles %}
+
+{% block main %}
+	<div class="text-center">
+		<img src="{% static 'img/003.png' %}" width="150px">
+		<br>
+		<h1>Вхід до особістого кабинету</h1>
+
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+
+			<button class="btn btn-success" type="submit">Війти</button>
+			<a class="btn btn-outline-secondary" href="{% url 'account:register' %}">Реєстрація</a>
+			<br>
+			<br>
+			<p>Реєстрация через соціальні мережи:</p>
+			<a href="{% url 'social:begin' 'twitter' %}"><i class="fab fa-twitter"></i></a>
+			<a href="{% url 'social:begin' 'facebook' %}"><i class="fab fa-facebook-f"></i></a>
+			<p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+		</form>
+
+
+	</div>
+{% endblock %}

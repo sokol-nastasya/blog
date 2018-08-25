@@ -1,0 +1,57 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+
+{% block head %}
+
+	<div id="headerw" style="
+	background: url(../../static/img/header15.jpg) no-repeat;
+	margin-top: -10px;
+	padding-top: 20px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 300px;
+	width: 100%;
+	background-size: 100%;
+	color: white;
+
+	-webkit-background-size: cover; ">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Лікар алерголог</h1>
+					<h2>Вікторія Анатоліївна Яцишена</h2>
+					<h3>Архів новин</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block main %}
+	<br><br>
+	{% for news in news %}
+		<h4><a href="/news/news/{{ news.id }}">{{ news.title }}</a></h4>
+		<p>{% autoescape off %}{{ news.get_short_text }}{% endautoescape %}</p>
+		<small>{{ news.date }}</small>
+	{% endfor %}
+
+	<div class="paginator">
+		<span class="step-links" style="position: relative; left: 350px;">
+			{% if news.has_previous %}
+				<a href="?page={{ news.previous_page_number }}">&#8592;</a>
+			{% endif %}
+
+			<span class="current">
+				Стр {{ news.number }} из {{ news.paginator.num_page }}.
+			</span>
+
+			{% if news.has_next %}
+				<a href="?page={{ news.next_page_number }}">&#8594;</a>
+			{% endif %}
+
+		</span>
+	</div>
+
+{% endblock %}

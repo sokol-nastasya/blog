@@ -1,0 +1,60 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+{% block main %}
+	<div class="card text-center">
+		<div class="card-header">
+			<ul class="nav nav-tabs card-header-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" href="#"><i class="fas fa-plus-circle">Лікар</i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'main:certificates' %}"><i class="fas fa-user-graduate"> Сертифікати та дипломи</i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'main:photo_doctor' %}"><i class="fas fa-camera-retro"> Фото</i></a>
+				</li>
+			</ul>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-10">
+					{% for inf in infs %}
+						<h1>{{ inf.title }}</h1>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					{% for inf in infs %}
+						<p>{% autoescape off %}{{ inf.descrip }}{% endautoescape %}</p>
+					{% endfor %}
+				</div>
+				<div class="col-md-6">
+					<!-- {% if infs.img %}
+						<img class="rounded-circle" src="{{ MEDIA_URL }}{{ infs.img.url }}" width="300" align="center">
+					{% endif %} -->
+					{% for inf in infs %}
+						<img class="rounded-circle" src="{{ MEDIA_URL }}{{ inf.img.url }}" width="300" align="center">
+					{% endfor %}
+
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-10">
+					{% for med in med %}
+						<h1>{{ med.title }}</h1>
+					{% endfor %}
+				</div>
+				<div class="col-md-6">
+					{% for med in med %}
+						<p>{% autoescape off %}{{ med.descrip }}{% endautoescape %}</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

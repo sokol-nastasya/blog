@@ -1,0 +1,53 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+
+{% block head %}
+	<div id="headerw" style="
+	background: url(../../static/img/header4.jpg) no-repeat;
+	margin-top: -10px;
+	padding-top: 20px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 300px;
+	width: 100%;
+	background-size: 100%;
+	color: white;
+
+	-webkit-background-size: cover; ">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h1>Лікар алерголог</h1>
+					<h2>Вікторія Анатоліївна Яцишена</h2>
+					<h3>Галерея</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block main %}
+<div class="container">
+	<div class="card-columns my-5">
+		<div class="card text-white">
+			<img class="card-img" src="../../static/img/header5.jpg">
+			<div class="card-img-overlay d-flex justify-content-between">
+				<div class="top-block">
+					<a href="../../static/img/header5.jpg" class="btn btn-light download-btn">
+						<i class="fas fa-download"></i>
+					</a>
+				</div>
+				<div class="bottom-block">
+					<div class="author d-inline-block">
+						<h4>zInform</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+	
+{% endblock %}
+
+
